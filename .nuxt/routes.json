@@ -1,0 +1,15 @@
+[
+  {
+    "path": "/",
+    "component": "/Users/yangjiaxin/大前端/realworld-nuxtjs/pages/layout",
+    "children": [
+      {
+        "path": "",
+        "name": "home",
+        "component": "/Users/yangjiaxin/大前端/realworld-nuxtjs/pages/home",
+        "_name": "_e6fe998a"
+      }
+    ],
+    "_name": "_75349286"
+  }
+]

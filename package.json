@@ -1,0 +1,16 @@
+{
+  "name": "realworld-nuxtjs",
+  "version": "1.0.0",
+  "description": "- mkdir realworld-nuxtjs - npm init -y - npm i nuxt - 配置启动脚本 - 创建pages目录,配置初始化页面",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nuxt",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "nuxt": "^2.14.1"
+  }
+}
