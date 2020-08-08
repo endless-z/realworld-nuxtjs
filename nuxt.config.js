@@ -3,6 +3,7 @@
  */
 module.exports = {
   router: {
+    linkActiveClass: 'active',
     extendRoutes (routes, resolve) {
       // 清楚 Nuxt.js 基于pages 目录默认生成的路由表规则
       routes.splice(0)

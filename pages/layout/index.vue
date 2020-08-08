@@ -7,7 +7,7 @@
         <nuxt-link class="navbar-brand" to="/">conduit</nuxt-link>
         <ul class="nav navbar-nav pull-xs-right">
           <li class="nav-item">
-            <nuxt-link class="nav-link active" to="/"></nuxt-link>
+            <nuxt-link class="nav-link" to="/" exact>Home</nuxt-link>
           </li>
           <li class="nav-item">
             <nuxt-link class="nav-link" to="/editor">
