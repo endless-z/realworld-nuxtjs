@@ -3,8 +3,9 @@ import request from '@/utils/request'
 // 用户登录
 
 export const login = data => {
+  console.log(data, 's')
   return request({
-    methods: 'POST',
+    method: 'POST',
     url: '/api/users/login',
     data
   })

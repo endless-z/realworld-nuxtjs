@@ -34,3 +34,47 @@
 // 替换
 <nuxt-link class="nav-link active" to="/"></nuxt-link>                      
 ```
+
+### 解析存储登录状态实现流程
+```js
+// https://www.nuxtjs.cn/examples/auth-external-jwt
+// https://codesandbox.io/s/github/nuxt/nuxt.js/tree/dev/examples/auth-jwt?from-embed
+
+
+// 为了防止数据冲突,需要把state 定义成一个函数,返回数据对象
+export const state = () => {
+  return {
+    // 当前登录用户的登录状态
+    user: null
+  }
+}
+
+export const mutations = {
+  setUser (state, data) {
+    state.user = data
+  }
+}
+
+export const actions = {}
+```
+```js
+// index.vue
+async onSubmit () {
+  try {
+    const { data } = this.isLogin ?  await login({
+      user: this.user
+    }) : await register({
+      user: this.user
+    })
+    // 保存用户的登录状态
+    this.$store.commit('setUser', data.user)
+    // 跳转到首页
+    this.$router.push('/')
+  } catch (err) {
+    this.errors = err.response.data.errors
+  }
+}
+```
+![image](https://img-blog.csdnimg.cn/202008081725076.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3NpbmF0XzM1MzQ5NDkz,size_16,color_FFFFFF,t_70)
+
+### 17.登录状态持久化
