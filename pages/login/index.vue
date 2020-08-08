@@ -13,17 +13,17 @@
             <li>That email is already taken</li>
           </ul>
 
-          <form>
+          <form @submit.prevent="">
             <fieldset class="form-group" v-if="!isLogin">
-              <input class="form-control form-control-lg" type="text" placeholder="Your Name" />
+              <input class="form-control form-control-lg" type="text"  placeholder="Your Name" />
             </fieldset>
             <fieldset class="form-group">
-              <input class="form-control form-control-lg" type="text" placeholder="Email" />
+              <input class="form-control form-control-lg" type="text" v-model="user.email" placeholder="Email" />
             </fieldset>
             <fieldset class="form-group">
-              <input class="form-control form-control-lg" type="password" placeholder="Password" />
+              <input class="form-control form-control-lg" type="password" v-model="user.password" placeholder="Password" />
             </fieldset>
-            <button class="btn btn-lg btn-primary pull-xs-right">{{isLogin ? 'Sign in' : 'Sign up' }}</button>
+            <button class="btn btn-lg btn-primary pull-xs-right" @click='onSubmit'>{{isLogin ? 'Sign in' : 'Sign up' }}</button>
           </form>
         </div>
       </div>
@@ -32,11 +32,35 @@
 </template>
 
 <script>
+import request from '@/utils/request'
 export default {
   name: 'LoginIndex',
+  data () {
+    return {
+      user: {
+        email: '',
+        password: ''
+      }
+    }
+  },
   computed: {
     isLogin () {
       return this.$route.name === 'login'
+    }
+  },
+  methods: {
+    async onSubmit () {
+      const { data } = await request({
+        method: 'POST',
+        url: '/api/users/login',
+        data: {
+          user: this.user
+        }
+      })
+      console.log(data)
+      // 保存用户的登录状态
+      // 跳转到首页
+      this.$router.push('/')
     }
   }
 };
