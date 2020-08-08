@@ -18,18 +18,18 @@ export const actions = {
   // 这个action 会在服务端渲染期间自动调用
   // 作用: 初始化容器数据,传递数据给客户端使用
   nuxtServerInit ({ commit }, { req }) {
-    let auth = null
+    let user = null
     // 如果请求头有cookie
     if (req.headers.cookie) {
       // 使用cookieparser 把cookie 字符串转换为JS对象
       const parsed = cookieparser.parse(req.headers.cookie)
       try {
-        auth = JSON.parse(parsed.auth)
+        user = JSON.parse(parsed.user)
       } catch (err) {
         // No 
       }
     }
     // 提交mutation 修改state状态
-    commit('setAuth', auth)
+    commit('setUser', user)
   }
 }
