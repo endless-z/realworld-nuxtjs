@@ -32,7 +32,7 @@
 </template>
 
 <script>
-import request from '@/utils/request'
+import { login } from '@/api/user'
 export default {
   name: 'LoginIndex',
   data () {
@@ -50,12 +50,8 @@ export default {
   },
   methods: {
     async onSubmit () {
-      const { data } = await request({
-        method: 'POST',
-        url: '/api/users/login',
-        data: {
-          user: this.user
-        }
+      const { data } = await login({
+        user: this.user
       })
       console.log(data)
       // 保存用户的登录状态

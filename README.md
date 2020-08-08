@@ -27,6 +27,8 @@
 
 ### 七、处理顶部导航链接
 ```html
+<!-- yjx0301@qq.com
+12345678 -->
 // layout/index.vue
 <a class="nav-link active" href="">Home</a>
 // 替换
