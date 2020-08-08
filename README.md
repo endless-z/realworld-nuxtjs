@@ -24,3 +24,11 @@
 - 导入样式资源
 - 配置布局组件
 - 配置页面组件
+
+### 七、处理顶部导航链接
+```html
+// layout/index.vue
+<a class="nav-link active" href="">Home</a>
+// 替换
+<nuxt-link class="nav-link active" to="/"></nuxt-link>                      
+```
