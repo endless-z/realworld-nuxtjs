@@ -55,6 +55,7 @@ export default {
       })
       console.log(data)
       // 保存用户的登录状态
+      
       // 跳转到首页
       this.$router.push('/')
     }
