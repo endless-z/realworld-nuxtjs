@@ -230,3 +230,12 @@ plugins: [
   '~/plugins/request.js'
 ]
 ```
+
+### 时间格式化处理
+- day.js 仅2kb
+- 封装成全局过滤器
+- plugins/day.js
+
+```js
+timer | date('MMM DD, YYYY')
+```
