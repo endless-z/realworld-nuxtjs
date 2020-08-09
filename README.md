@@ -171,3 +171,27 @@ List Articles
 ```
 
 ```
+
+### 优化并行任务
+```js
+async asyncData ({ query }) {
+  const page = Number.parseInt(query.page || 1)
+  const limit = 20
+  const [ articleRes, tagRes ] = await Promise.all([
+    getArticles({
+      limit,
+      offset: (page - 1) * limit
+    }),
+    getTags()
+  ])
+  const { articles, articlesCount } = articleRes.data
+  const { tags } = tagRes.data
+  return {
+    articles,
+    articlesCount,
+    tags,
+    limit,
+    page
+  }
+}
+```
