@@ -54,12 +54,26 @@
               slug: article.slug
             }
           }" class="preview-link">
-            <h1>{{arcitle.title}}</h1>
-            <p>{{article.description}}</p>
+            <h1>{{ article.title }}</h1>
+            <p>{{ article.description }}</p>
             <span>Read more...</span>
           </nuxt-link>
         </div>
-
+        <!-- 分页列表 -->
+        <nav>
+          <ul class="pagination">
+            <li class="page-item" v-for="item in totalPage" :class="{
+              active: item === page
+            }" :key="item">
+              <nuxt-link class="page-link" :to="{
+                name: 'home',
+                query: {
+                  page: item
+                }
+              }">{{ item }}</nuxt-link>
+            </li>
+          </ul>
+        </nav>
         
       </div>
 
@@ -90,16 +104,25 @@
 import  { getArticles } from '@/api/article'
 export default {
   name: 'HomeIndex',
-  async asyncData () {
-    const page = 1
-    const limit = 2
+  async asyncData ({ query }) {
+    const page = Number.parseInt(query.page || 1)
+    const limit = 20
     const { data } = await getArticles({
       limit,
       offset: (page - 1) * limit
     })
+    console.log(data, 'data')
     return {
       articles: data.articles,
-      articlesCount: data.articlesCount
+      articlesCount: data.articlesCount,
+      limit,
+      page
+    }
+  },
+  watchQuery: ['page'],
+  computed: {
+    totalPage () {
+      return Math.ceil(this.articlesCount / this.limit)
     }
   }
 }
