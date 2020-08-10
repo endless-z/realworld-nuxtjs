@@ -13,7 +13,6 @@ export default ({ store }) => {
   request.interceptors.request.use(function (config) {
     // Do something before request is sent
     const { user } = store.state
-
     if (user && user.token) {
       config.headers.Authorization = `Token ${user.token}`
     }

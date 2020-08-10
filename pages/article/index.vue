@@ -2,7 +2,7 @@
   <div class="article-page">
     <div class="banner">
       <div class="container">
-        <h1>How to build webapps that scale</h1>
+        <h1>{{ article.title }}</h1>
 
         <div class="article-meta">
           <a href>
@@ -32,9 +32,7 @@
     <div class="container page">
       <div class="row article-content">
         <div class="col-md-12">
-          <p>Web development technologies have evolved at an incredible clip over the past few years.</p>
-          <h2 id="introducing-ionic">Introducing RealWorld.</h2>
-          <p>It's a great solution for learning how other frameworks work.</p>
+          {{ article.body }}
         </div>
       </div>
 
@@ -120,8 +118,15 @@
 </template>
 
 <script>
+import { getArticle } from '@/api/article'
 export default {
-  name: 'AritcelIndex'
+  name: 'AritcelIndex',
+  async asyncData ({params}) {
+    const { data } = await getArticle(params.slug)
+    return {
+      article: data.article
+    }
+  }
 };
 </script>
 
