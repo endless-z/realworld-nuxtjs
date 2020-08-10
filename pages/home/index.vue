@@ -191,8 +191,8 @@ export default {
       if (article.favorited) {
         // 取消点赞
         await deleteFavorite(article.slug)
-        article.favorited = getYourFeedArticles
-        articles.favoritesCount += -1
+        article.favorited = false
+        article.favoritesCount += -1
       } else {
         // 点赞
         await addFavorite(article.slug)

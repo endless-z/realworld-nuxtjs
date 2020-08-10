@@ -239,3 +239,26 @@ plugins: [
 ```js
 timer | date('MMM DD, YYYY')
 ```
+
+### markdown 处理
+```js
+npm install markdown-it -save
+
+// 使用
+import { getArticle } from '@/api/article'
+import MarkdownIt from 'markdown-it'
+export default {
+  name: 'AritcelIndex',
+  async asyncData ({ params }) {
+    const { data } = await getArticle(params.slug)
+    const { alticle } = data
+    const md = new MarkdownIt()
+    data.body = md.render(article.body)
+    return {
+      article
+    }
+  }
+};
+```
+
+![image](https://img-blog.csdnimg.cn/20200810232536225.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3NpbmF0XzM1MzQ5NDkz,size_16,color_FFFFFF,t_70)

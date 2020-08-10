@@ -22,8 +22,7 @@ export const getYourFeedArticles = params => {
 export const addFavorite = slug => {
   return request({
     method: 'POST',
-    url: `/api/articles/${slug}/favorite`,
-    params
+    url: `/api/articles/${slug}/favorite`
   })
 }
 
