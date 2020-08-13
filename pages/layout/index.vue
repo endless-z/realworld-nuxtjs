@@ -21,13 +21,18 @@
               </nuxt-link>
             </li>
             <li class="nav-item">
-              <a class="nav-link" to="/profile/大白菜">
+              <nuxt-link class="nav-link" :to="{
+                name: 'profile',
+                params: {
+                  username: `${user.username}`,
+                }
+              }">
                 <img
                   class="user-pic"
                   :src="user.image"
                 />
                 {{user.username}}
-              </a>
+              </nuxt-link>
             </li>
           </template>
           <template v-else>
