@@ -578,12 +578,9 @@ function fixPrepatch (to, ___) {
       }
     })
     checkForErrors(this)
-<<<<<<< HEAD
-=======
 
     // Hot reloading
     setTimeout(() => hotReloadAPI(this), 100)
->>>>>>> 671078a67f05c99dd2eca51495f3b0c0ad1759ed
   })
 }
 

@@ -10,11 +10,8 @@
         <NuxtLink class="error-link" to="/">Back to the home page</NuxtLink>
       </p>
 
-<<<<<<< HEAD
-=======
       <p class="description" v-else>An error occurred while rendering the page. Check developer tools console for details.</p>
 
->>>>>>> 671078a67f05c99dd2eca51495f3b0c0ad1759ed
       <div class="logo">
         <a href="https://nuxtjs.org" target="_blank" rel="noopener">Nuxt.js</a>
       </div>

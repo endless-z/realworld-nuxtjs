@@ -1,5 +1,2 @@
-<<<<<<< HEAD
 node_modules/
-=======
-node_modules/
->>>>>>> 671078a67f05c99dd2eca51495f3b0c0ad1759ed
+.nuxt/

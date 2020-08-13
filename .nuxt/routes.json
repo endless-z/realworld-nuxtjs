@@ -1,93 +1,51 @@
 [
   {
     "path": "/",
-<<<<<<< HEAD
-    "component": "D:\\\\realworld-nuxtjs\\\\pages\\\\layout",
-=======
     "component": "/Users/yangjiaxin/大前端/realworld-nuxtjs/pages/layout",
->>>>>>> 671078a67f05c99dd2eca51495f3b0c0ad1759ed
     "children": [
       {
         "path": "",
         "name": "home",
-<<<<<<< HEAD
-        "component": "D:\\\\realworld-nuxtjs\\\\pages\\\\home",
-        "_name": "_02474f12"
-=======
         "component": "/Users/yangjiaxin/大前端/realworld-nuxtjs/pages/home",
         "_name": "_e6fe998a"
->>>>>>> 671078a67f05c99dd2eca51495f3b0c0ad1759ed
       },
       {
         "path": "/login",
         "name": "login",
-<<<<<<< HEAD
-        "component": "D:\\\\realworld-nuxtjs\\\\pages\\\\login",
-        "_name": "_46dadb96"
-=======
         "component": "/Users/yangjiaxin/大前端/realworld-nuxtjs/pages/login",
         "_name": "_03cdfc8d"
->>>>>>> 671078a67f05c99dd2eca51495f3b0c0ad1759ed
       },
       {
         "path": "/register",
         "name": "register",
-<<<<<<< HEAD
-        "component": "D:\\\\realworld-nuxtjs\\\\pages\\\\login",
-        "_name": "_46dadb96"
-=======
         "component": "/Users/yangjiaxin/大前端/realworld-nuxtjs/pages/login",
         "_name": "_03cdfc8d"
->>>>>>> 671078a67f05c99dd2eca51495f3b0c0ad1759ed
       },
       {
         "path": "/profile/:username",
         "name": "profile",
-<<<<<<< HEAD
-        "component": "D:\\\\realworld-nuxtjs\\\\pages\\\\profile",
-        "_name": "_568dc2d4"
-=======
         "component": "/Users/yangjiaxin/大前端/realworld-nuxtjs/pages/profile",
         "_name": "_2167ddcd"
->>>>>>> 671078a67f05c99dd2eca51495f3b0c0ad1759ed
       },
       {
         "path": "/settings",
         "name": "settings",
-<<<<<<< HEAD
-        "component": "D:\\\\realworld-nuxtjs\\\\pages\\\\settings",
-        "_name": "_53aac4d6"
-=======
         "component": "/Users/yangjiaxin/大前端/realworld-nuxtjs/pages/settings",
         "_name": "_c6582702"
->>>>>>> 671078a67f05c99dd2eca51495f3b0c0ad1759ed
       },
       {
         "path": "/editor",
         "name": "editor",
-<<<<<<< HEAD
-        "component": "D:\\\\realworld-nuxtjs\\\\pages\\\\editor",
-        "_name": "_f0168a40"
-=======
         "component": "/Users/yangjiaxin/大前端/realworld-nuxtjs/pages/editor",
         "_name": "_6965b8c9"
->>>>>>> 671078a67f05c99dd2eca51495f3b0c0ad1759ed
       },
       {
         "path": "/article/:slug",
         "name": "article",
-<<<<<<< HEAD
-        "component": "D:\\\\realworld-nuxtjs\\\\pages\\\\article",
-        "_name": "_88f93c3a"
-      }
-    ],
-    "_name": "_d878d6c6"
-=======
         "component": "/Users/yangjiaxin/大前端/realworld-nuxtjs/pages/article",
         "_name": "_0832211a"
       }
     ],
     "_name": "_75349286"
->>>>>>> 671078a67f05c99dd2eca51495f3b0c0ad1759ed
   }
 ]

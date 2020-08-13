@@ -3,10 +3,7 @@ import Vue from 'vue'
 import { getMatchedComponentsInstances, getChildrenComponentInstancesUsingFetch, promisify, globalHandleError, urlJoin, sanitizeComponent } from './utils'
 
 import NuxtLoading from './components/nuxt-loading.vue'
-<<<<<<< HEAD
-=======
 import NuxtBuildIndicator from './components/nuxt-build-indicator'
->>>>>>> 671078a67f05c99dd2eca51495f3b0c0ad1759ed
 
 import _6f6c098b from './layouts/default.vue'
 
@@ -45,11 +42,7 @@ export default {
       }
     }, [
       loadingEl,
-<<<<<<< HEAD
-
-=======
       h(NuxtBuildIndicator),
->>>>>>> 671078a67f05c99dd2eca51495f3b0c0ad1759ed
       transitionEl
     ])
   },
@@ -175,13 +168,10 @@ export default {
     },
 
     setLayout (layout) {
-<<<<<<< HEAD
-=======
       if(layout && typeof layout !== 'string') {
         throw new Error('[nuxt] Avoid using non-string value as layout property.')
       }
 
->>>>>>> 671078a67f05c99dd2eca51495f3b0c0ad1759ed
       if (!layout || !layouts['_' + layout]) {
         layout = 'default'
       }

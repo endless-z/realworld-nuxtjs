@@ -12,13 +12,8 @@ import { createStore } from './store.js'
 
 /* Plugins */
 
-<<<<<<< HEAD
-import nuxt_plugin_request_e6dd6e04 from 'nuxt_plugin_request_e6dd6e04' // Source: ..\\plugins\\request.js (mode: 'all')
-import nuxt_plugin_day_6fad285e from 'nuxt_plugin_day_6fad285e' // Source: ..\\plugins\\day.js (mode: 'all')
-=======
 import nuxt_plugin_request_e6dd6e04 from 'nuxt_plugin_request_e6dd6e04' // Source: ../plugins/request.js (mode: 'all')
 import nuxt_plugin_day_6fad285e from 'nuxt_plugin_day_6fad285e' // Source: ../plugins/day.js (mode: 'all')
->>>>>>> 671078a67f05c99dd2eca51495f3b0c0ad1759ed
 
 // Component: <ClientOnly>
 Vue.component(ClientOnly.name, ClientOnly)
