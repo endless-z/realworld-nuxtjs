@@ -42,6 +42,9 @@ let store
 // Try to rehydrate SSR data from window
 const NUXT = window.__NUXT__ || {}
 
+<<<<<<< HEAD
+Object.assign(Vue.config, {"silent":true,"performance":false})
+=======
 Object.assign(Vue.config, {"silent":false,"performance":true})
 
 const logs = NUXT.logs || []
@@ -102,6 +105,7 @@ if (!Vue.config.$nuxt) {
   Vue.config.$nuxt = {}
 }
 Vue.config.$nuxt.$nuxt = true
+>>>>>>> 671078a67f05c99dd2eca51495f3b0c0ad1759ed
 
 const errorHandler = Vue.config.errorHandler || console.error
 
@@ -578,9 +582,12 @@ function fixPrepatch (to, ___) {
       }
     })
     checkForErrors(this)
+<<<<<<< HEAD
+=======
 
     // Hot reloading
     setTimeout(() => hotReloadAPI(this), 100)
+>>>>>>> 671078a67f05c99dd2eca51495f3b0c0ad1759ed
   })
 }
 
@@ -601,6 +608,8 @@ function nuxtReady (_app) {
   })
 }
 
+<<<<<<< HEAD
+=======
 const noopData = () => { return {} }
 const noopFetch = () => {}
 
@@ -712,6 +721,7 @@ function addHotReload ($component, depth) {
   }
 }
 
+>>>>>>> 671078a67f05c99dd2eca51495f3b0c0ad1759ed
 async function mountApp (__app) {
   // Set global variables
   app = __app.app
@@ -741,9 +751,12 @@ async function mountApp (__app) {
     Vue.nextTick(() => {
       // Call window.{{globals.readyCallback}} callbacks
       nuxtReady(_app)
+<<<<<<< HEAD
+=======
 
       // Enable hot reloading
       hotReloadAPI(_app)
+>>>>>>> 671078a67f05c99dd2eca51495f3b0c0ad1759ed
     })
   }
 

@@ -143,7 +143,11 @@ export async function setContext (app, context) {
   if (!app.context) {
     app.context = {
       isStatic: process.static,
+<<<<<<< HEAD
+      isDev: false,
+=======
       isDev: true,
+>>>>>>> 671078a67f05c99dd2eca51495f3b0c0ad1759ed
       isHMR: false,
       app,
       store: app.store,
@@ -227,7 +231,11 @@ export async function setContext (app, context) {
   app.context.next = context.next
   app.context._redirected = false
   app.context._errored = false
+<<<<<<< HEAD
+  app.context.isHMR = false
+=======
   app.context.isHMR = Boolean(context.isHMR)
+>>>>>>> 671078a67f05c99dd2eca51495f3b0c0ad1759ed
   app.context.params = app.context.route.params || {}
   app.context.query = app.context.route.query || {}
 }
@@ -245,9 +253,12 @@ export function middlewareSeries (promises, appContext) {
 export function promisify (fn, context) {
   let promise
   if (fn.length === 2) {
+<<<<<<< HEAD
+=======
       console.warn('Callback-based asyncData, fetch or middleware calls are deprecated. ' +
         'Please switch to promises or async/await syntax')
 
+>>>>>>> 671078a67f05c99dd2eca51495f3b0c0ad1759ed
     // fn(context, callback)
     promise = new Promise((resolve) => {
       fn(context, function (err, data) {
