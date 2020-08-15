@@ -4,13 +4,18 @@
       <div class="container">
         <div class="row">
           <div class="col-xs-12 col-md-10 offset-md-1">
-            <img :src="user.image" class="user-img" />
-            <h4>{{user.username}}</h4>
-            <p>{{user.bio}}</p>
-            <button class="btn btn-sm btn-outline-secondary action-btn">
+            <img :src="userProfile.image" class="user-img" />
+            <h4>{{userProfile.username}}</h4>
+            <p>{{userProfile.bio}}</p>
+            <button class="btn btn-sm btn-outline-secondary action-btn" v-if="userProfile.username === user.username">
               <i class="ion-plus-round"></i>
               &nbsp;
-              {{ user.following ? 'Edit Profile Settings': 'Follow Eric Simons'}}
+              Edit Profile Settings
+            </button>
+            <button class="btn btn-sm btn-outline-secondary action-btn" v-else>
+              <i class="ion-plus-round"></i>
+              &nbsp;
+              {{ !userProfile.following ? 'Follow' + userProfile.username : 'Unfollow' + userProfile.username}}
             </button>
           </div>
         </div>
@@ -64,7 +69,12 @@
                 <i class="ion-heart"></i> {{items.favoritesCount}}
               </button>
             </div>
-            <nuxt-link to="/" class="preview-link">
+            <nuxt-link :to="{
+              name: 'article',
+              params: {
+                slug: items.slug
+              }
+            }" class="preview-link">
               <h1>{{items.title}}</h1>
               <p>{{items.description}}</p>
               <span>Read more...</span>
@@ -95,12 +105,13 @@
 
 <script>
 import { getProfile, getArticles } from '@/api/profile'
+import { mapState } from 'vuex'
 export default {
   middleware: ['authenticated'],
   name: "UserProfile",
   data () {
     return {
-      user: '',
+      userProfile: '',
     }
   },
   async asyncData ({params, query}) {
@@ -125,11 +136,10 @@ export default {
       getProfile(username),
       getArticles(loadArticles)
     ])
-    const user = userInfo.data.profile
+    const userProfile = userInfo.data.profile
     const { articles, articlesCount } = article.data
-    console.log(articles, 'user')
     return {
-      user,
+      userProfile,
       limit, // 每页大小
       tab,
       page,
@@ -140,7 +150,8 @@ export default {
   computed: {
     totalPage () {
       return Math.ceil(this.articlesCount / this.limit)
-    }
+    },
+    ...mapState(['user'])
   },
   watchQuery: ['tab', 'page'],
 };

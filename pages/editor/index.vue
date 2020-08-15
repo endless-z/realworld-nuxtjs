@@ -37,6 +37,7 @@
 
 <script>
 import { newArticle } from '@/api/edit'
+import { getArticle } from '@/api/article'
 export default {
   // 在路由匹配组件渲染之前先执行中间件处理
   middleware: ['authenticated'],
@@ -52,8 +53,20 @@ export default {
       tagList: []
     }
   },
+  async asyncData ({ params }) {
+    if (!params.slug) return
+    const { data } = await getArticle(params.slug)
+    const { article } = data
+    const tagList = article.tagList
+    article.tagList = ''
+    return {
+      tagList,
+      article
+    }
+  },
   methods: {
     async uploadArticle () {
+      this.article.tagList = this.article.tagList === '' ? this.tagList : this.article.tagList
       const { data } = await newArticle({article: this.article})
       this.$router.push('/article/'+ data.article.slug)
     },
@@ -63,7 +76,8 @@ export default {
       this.tagList.push(this.article.tagList)
       this.article.tagList =  ''
     }
-  }
+  },
+  watchQuery: ['slug'],
 }
 </script>
 

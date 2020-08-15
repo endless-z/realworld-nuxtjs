@@ -34,7 +34,7 @@
         "_name": "_c6582702"
       },
       {
-        "path": "/editor",
+        "path": "/editor/:slug",
         "name": "editor",
         "component": "/Users/yangjiaxin/大前端/realworld-nuxtjs/pages/editor",
         "_name": "_6965b8c9"
