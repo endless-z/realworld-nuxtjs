@@ -61,7 +61,8 @@
       </nuxt-link>
       
       &nbsp;&nbsp;
-      <button class="btn btn-outline-danger btn-sm" 
+      <button class="btn btn-outline-danger btn-sm"
+      @click="delArticle"
       :class="{
         actice: article.author.favorited
       }">
@@ -74,6 +75,7 @@
 </template>
 
 <script>
+import { deleteArticle } from '@/api/edit'
 import { mapState } from 'vuex'
 export default {
   name: "ArticleMeta",
@@ -82,6 +84,12 @@ export default {
       type: Object,
       required: true,
     },
+  },
+  methods: {
+    async delArticle () {
+      await deleteArticle(this.article)
+      this.$router.push('/')
+    }
   },
   computed: {
     ...mapState(['user'])

@@ -36,7 +36,7 @@
 </template>
 
 <script>
-import { newArticle } from '@/api/edit'
+import { newArticle, editArticle } from '@/api/edit'
 import { getArticle } from '@/api/article'
 export default {
   // 在路由匹配组件渲染之前先执行中间件处理
@@ -67,12 +67,15 @@ export default {
   methods: {
     async uploadArticle () {
       this.article.tagList = this.article.tagList === '' ? this.tagList : this.article.tagList
-      const { data } = await newArticle({article: this.article})
-      this.$router.push('/article/'+ data.article.slug)
+      if (this.article.slug) {
+        const { data } = await editArticle({article: this.article})
+        this.$router.push('/article/'+ data.article.slug)
+      } else {
+        const { data } = await newArticle({article: this.article})
+        this.$router.push('/article/'+ data.article.slug)
+      }
     },
     onSubmit () {
-      console.log(this.article.tagList)
-      console.log(this.tagList)
       this.tagList.push(this.article.tagList)
       this.article.tagList =  ''
     }

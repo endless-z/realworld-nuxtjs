@@ -7,3 +7,18 @@ export const newArticle = data => {
     data
   })
 }
+
+export const editArticle = data => {
+  return request({
+    method: 'POST',
+    url: `/api/articles/` + data.article.slug,
+    data
+  })
+}
+
+export const deleteArticle = data => {
+  return request({
+    method: 'DELETE',
+    url: `/api/articles/` + data.slug
+  })
+}
