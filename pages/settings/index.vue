@@ -38,6 +38,8 @@
 
 <script>
 import { uploadUser, getUserInfo } from '@/api/settings'
+// 仅在客户端加载js-cookie包
+const Cookie = process.client ? require('js-cookie') : undefined
 export default {
   middleware: ['authenticated'],
   name: "SettingIndex",
@@ -61,7 +63,13 @@ export default {
   },
   methods: {
     async uploadUserInfo () {
-      await uploadUser({user: this.user})
+      const { data } = await uploadUser({user: this.user})
+      // 保存用户的登录状态
+      this.$store.commit('setUser', data.user)
+      // 防止页面刷新,数据丢失,需要把数据持久化
+      Cookie.set('user', data.user)
+      // 跳转到首页
+      this.$router.push('/profile/'+ data.user.username)
     }
   }
 };

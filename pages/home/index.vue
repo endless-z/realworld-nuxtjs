@@ -154,6 +154,7 @@ export default {
     const limit = 20
     const tab = query.tab || 'global_feed'
     const tag = query.tag
+    console.log(query.tab, 'query.tab')
     const loadArticles = tab === 'global_feed'
     ? getArticles
     : getYourFeedArticles
