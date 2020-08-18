@@ -49,3 +49,17 @@ export const getComments = slug => {
     url: `/api/articles/${slug}/comments`
   })
 }
+
+export const followUser = username => {
+  return request({
+    method: 'POST',
+    url: `/api/profiles/${username}/follow`
+  })
+}
+
+export const unFollowUser = username => {
+  return request({
+    method: 'DELETE',
+    url: `/api/profiles/${username}/follow`
+  })
+}
