@@ -7,11 +7,12 @@
             <img :src="userProfile.image" class="user-img" />
             <h4>{{userProfile.username}}</h4>
             <p>{{userProfile.bio}}</p>
-            <button class="btn btn-sm btn-outline-secondary action-btn" v-if="userProfile.username === user.username">
+            <nuxt-link class="btn btn-sm btn-outline-secondary action-btn" v-if="userProfile.username === user.username"
+            to="/settings">
               <i class="ion-plus-round"></i>
               &nbsp;
               Edit Profile Settings
-            </button>
+            </nuxt-link>
             <button class="btn btn-sm btn-outline-secondary action-btn" v-else>
               <i class="ion-plus-round"></i>
               &nbsp;

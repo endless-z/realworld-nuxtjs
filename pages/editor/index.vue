@@ -53,9 +53,14 @@ export default {
       tagList: []
     }
   },
-  async asyncData ({ params }) {
-    if (!params.slug) return
-    const { data } = await getArticle(params.slug)
+  async asyncData (context) {
+    console.log(context)
+    if (!context.params.slug) {
+      return {
+        article: {}
+      }
+    }
+    const { data } = await getArticle(context.params.slug)
     const { article } = data
     const tagList = article.tagList
     article.tagList = ''
