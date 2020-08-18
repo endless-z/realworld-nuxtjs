@@ -312,6 +312,7 @@ Nuxt.js 使用了 vue-meta 更新应用的 头部标签(Head) and html 属性
 ### 修改用户信息
 ```js
 // Update User
+
 // PUT /api/user
 ```
 example
