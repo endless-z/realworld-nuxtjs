@@ -148,13 +148,13 @@ import  {
 import { getTags } from '@/api/tag'
 import { mapState } from 'vuex'
 export default {
-  name: 'HomeIndex',
+  name: 'HomePage',
   async asyncData ({ query }) {
     const page = Number.parseInt(query.page || 1)
     const limit = 20
-    const tab = query.tab || 'your_feed'
+    const tab = query.tab || 'global_feed'
     const tag = query.tag
-    const loadArticles = tab === 'global_feed'
+    const loadArticles = tab !== 'your_feed'
     ? getArticles
     : getYourFeedArticles
     const [ articleRes, tagRes ] = await Promise.all([
@@ -187,12 +187,13 @@ export default {
   },
   methods: {
     async onFavorite (article) {
+      if (!this.user ) return this.$router.push('/login')
       article.favoriteDisabled = true
       if (article.favorited) {
         // 取消点赞
         await deleteFavorite(article.slug)
         article.favorited = false
-        article.favoritesCount += -1
+        article.favoritesCount -= 1
       } else {
         // 点赞
         await addFavorite(article.slug)
@@ -204,7 +205,3 @@ export default {
   }
 }
 </script>
-
-<style>
-
-</style>

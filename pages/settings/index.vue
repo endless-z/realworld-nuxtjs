@@ -30,6 +30,9 @@
               <button class="btn btn-lg btn-primary pull-xs-right">Update Settings</button>
             </fieldset>
           </form>
+          <button class="btn btn-outline-danger" @click="logout">
+            Or click here to logout.
+          </button>
         </div>
       </div>
     </div>
@@ -62,6 +65,14 @@ export default {
     }
   },
   methods: {
+    async logout() {
+     // 删除用户的登录状态
+      this.$store.commit('setUser', null)
+      // 删除数据持久化
+      Cookie.set('user', null)
+      // 跳转到首页
+      this.$router.push('/')
+    },
     async uploadUserInfo () {
       const { data } = await uploadUser({user: this.user})
       // 保存用户的登录状态
